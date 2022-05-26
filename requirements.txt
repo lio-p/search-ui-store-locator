@@ -1,0 +1,1 @@
+elastic_enterprise_search==7.12.0
