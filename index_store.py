@@ -16,10 +16,10 @@ app_search = AppSearch(
 
 names = set()
 
-print("Create engine best-buy-stores...")
+print("Create engine stores...")
 # Create engine
 app_search.create_engine(
-    engine_name="best-buy-stores",
+    engine_name="stores",
     language="en",
 )
 print("Engine created")
@@ -43,14 +43,14 @@ with open("./stores.json") as reader:
 
         i = i + 1
         if i > 99:
-            app_search.index_documents(engine_name="best-buy-stores",documents=products,request_timeout=60)
+            app_search.index_documents(engine_name="stores",documents=products,request_timeout=60)
             i = 0
             products = []
 print ("Data loaded")        
 print ("Update schema..")
 # Update schema
 app_search.put_schema(
-    engine_name="best-buy-stores",
+    engine_name="stores",
     schema={
         "location": "geolocation"
     }
